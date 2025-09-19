@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitFlex — Your Personal Fitness Companion</title>
+  <meta name="description" content="FitFlex helps you plan workouts, track progress, and stay motivated." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --accent:#00c2a8; /* mint */
+      --muted:#9aa7b2;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--bg),#07101a 60%);
+      color:#e6eef2;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:4rem;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:2rem}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+    .brand{display:flex;gap:.75rem;align-items:center}
+    .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3dd3ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#052025}
+    .brand h1{font-size:1.1rem;margin:0}
+    nav{display:flex;gap:1rem;align-items:center}
+    a.btn{background:var(--accent);color:#032322;padding:.55rem .9rem;border-radius:10px;text-decoration:none;font-weight:600}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:.5rem .9rem;border-radius:10px;color:var(--muted);text-decoration:none}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:1.5rem;align-items:center;margin-bottom:2rem}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:1.6rem;border-radius:14px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .kicker{color:var(--accent);font-weight:700;font-size:.85rem}
+    h2{margin:.4rem 0 0;font-size:1.9rem}
+    p.lead{color:var(--muted);margin-top:.6rem}
+
+    /* Quick stats */
+    .stats{display:flex;gap:1rem;margin-top:1rem}
+    .stat{background:var(--glass);padding:1rem;border-radius:10px;flex:1;text-align:center}
+    .stat h3{margin:.1rem 0 .2rem}
+    .small{color:var(--muted);font-size:.85rem}
+
+    /* Sidebar plan */
+    .plan{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:1rem;border-radius:12px}
+    .plan h4{margin:0 0 .5rem}
+    .workout-list{display:flex;flex-direction:column;gap:.5rem}
+    .witem{display:flex;justify-content:space-between;padding:.5rem;border-radius:8px;background:rgba(255,255,255,0.02)}
+    .witem .meta{color:var(--muted);font-size:.9rem}
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.6rem}
+    .feature{background:var(--card);padding:1rem;border-radius:12px}
+    .feature h5{margin:.2rem 0}
+
+    /* Progress and input */
+    .tracker{display:grid;grid-template-columns:1fr 340px;gap:1rem;margin-top:1.6rem}
+    .progress-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:1rem;border-radius:12px}
+    .progress-bar{background:rgba(255,255,255,0.06);height:14px;border-radius:10px;overflow:hidden}
+    .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#3dd3ff)}
+
+    form input,form select,form textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .row{display:flex;gap:.6rem}
+    .row > *{flex:1}
+
+    footer{margin-top:2rem;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .features{grid-template-columns:1fr 1fr}
+      .tracker{grid-template-columns:1fr}
+    }
+    @media (max-width:520px){
+      .features{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:.8rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">FF</div>
+        <div>
+          <h1>FitFlex</h1>
+          <small class="small">Your Personal Fitness Companion</small>
+        </div>
+      </div>
+      <nav>
+        <a class="ghost" href="#features">Features</a>
+        <a class="ghost" href="#tracker">Tracker</a>
+        <a class="btn" href="#signup">Get Started</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="kicker">BUILD. TRACK. GROW.</div>
+        <h2>Train smarter. Stay consistent. See results.</h2>
+        <p class="lead">FitFlex gives you quick workout plans, progress tracking, and a habit builder — all in one lightweight web app.</p>
+
+        <div class="stats" aria-hidden>
+          <div class="stat">
+            <h3 id="total-workouts">0</h3>
+            <div class="small">Workouts logged</div>
+          </div>
+          <div
